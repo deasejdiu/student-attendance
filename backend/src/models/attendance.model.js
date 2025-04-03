@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const User = require('./user.model');
 
 const Attendance = sequelize.define('Attendance', {
   id: {
@@ -10,11 +9,11 @@ const Attendance = sequelize.define('Attendance', {
   },
   studentId: {
     type: DataTypes.INTEGER,
-    allowNull: false,
-    references: {
-      model: User,
-      key: 'id'
-    }
+    allowNull: false
+  },
+  classId: {
+    type: DataTypes.INTEGER,
+    allowNull: false
   },
   date: {
     type: DataTypes.DATE,
@@ -23,36 +22,13 @@ const Attendance = sequelize.define('Attendance', {
   },
   status: {
     type: DataTypes.ENUM('present', 'absent', 'late'),
-    allowNull: false
-  },
-  markedById: {
-    type: DataTypes.INTEGER,
     allowNull: false,
-    references: {
-      model: User,
-      key: 'id'
-    }
-  },
-  notes: {
-    type: DataTypes.TEXT,
-    allowNull: true
+    defaultValue: 'present'
   },
   qrCode: {
     type: DataTypes.STRING,
     allowNull: false
   }
-}, {
-  timestamps: true,
-  indexes: [
-    {
-      unique: true,
-      fields: ['studentId', 'date']
-    }
-  ]
 });
 
-// Define relationships
-Attendance.belongsTo(User, { as: 'student', foreignKey: 'studentId' });
-Attendance.belongsTo(User, { as: 'markedBy', foreignKey: 'markedById' });
-
-module.exports = Attendance; 
+module.exports = Attendance;

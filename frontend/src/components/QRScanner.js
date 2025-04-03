@@ -1,22 +1,43 @@
-import React from "react";
-import QrReader from "react-qr-reader";
+import React from 'react';
+import { QrReader } from 'react-qr-reader';
+import { useDispatch } from 'react-redux';
+import { markAttendance } from '../../store/slices/attendanceSlice';
 
-const QRScanner = ({ onScan }) => {
+const QRScanner = () => {
+  const dispatch = useDispatch();
+
   const handleScan = (data) => {
     if (data) {
-      console.log("QR Code scanned:", data);
-      onScan(data);
+      try {
+        const attendanceData = JSON.parse(data);
+        dispatch(markAttendance(attendanceData));
+      } catch (error) {
+        console.error('Invalid QR code data:', error);
+      }
     }
   };
 
+  const handleError = (err) => {
+    console.error(err);
+  };
+
   return (
-    <QrReader
-      delay={300}
-      onScan={handleScan}
-      onError={(err) => console.error(err)}
-      style={{ width: "100%" }}
-    />
+    <div className="max-w-md mx-auto">
+      <QrReader
+        delay={300}
+        onResult={(result, error) => {
+          if (result) {
+            handleScan(result?.text);
+          }
+          if (error) {
+            handleError(error);
+          }
+        }}
+        style={{ width: '100%' }}
+        constraints={{ facingMode: 'environment' }}
+      />
+    </div>
   );
 };
 
-export default QRScanner;
+export default QRScanner;
