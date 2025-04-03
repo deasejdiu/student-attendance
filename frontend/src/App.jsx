@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import Dashboard from './pages/Dashboard';
 import PrivateRoute from './components/auth/PrivateRoute';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </Router>
     </Provider>
