@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import {useNavigate} from 'react-router-dom';
 
 function LoginForm (){
-    const navigate =useNavigate()
+    const navigate = useNavigate();
     const formik = useFormik({
         initialValues:{
             username:'',
@@ -32,9 +32,13 @@ function LoginForm (){
                     const errorData = await response.json();
                     throw new Error(errorData.error);
                 }
-                sessionStorage.setItem('username', values.username)
-                sessionStorage.setItem('IsLoggedIn' ,true)
+                const data = await response.json();
+                sessionStorage.setItem('username', values.username);
+                sessionStorage.setItem('IsLoggedIn', true);
+                sessionStorage.setItem('token', data.token);
                 console.log('Login Successful');
+                // Navigate to dashboard after successful login
+                navigate('/dashboard');
             }catch(error){
                 setErrors({
                     password:error.message});
