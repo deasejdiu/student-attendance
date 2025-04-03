@@ -25,7 +25,7 @@ app.use('/api/attendance', attendanceRoutes);
 app.use(errorHandler);
 
 // Database connection and sync
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 const startServer = async () => {
   try {

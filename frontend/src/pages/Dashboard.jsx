@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import QRScanner from '../components/qr/QRScanner';
-import GenerateQR from '../components/qr/GenerateQR';
 
 const Dashboard = () => {
   const { user } = useSelector((state) => state.auth);
@@ -18,14 +16,12 @@ const Dashboard = () => {
             <div className="space-y-6">
               <div className="bg-white shadow rounded-lg p-6">
                 <h2 className="text-xl font-semibold mb-4">Generate Attendance QR Code</h2>
-                <GenerateQR />
               </div>
             </div>
           ) : (
             <div className="space-y-6">
               <div className="bg-white shadow rounded-lg p-6">
                 <h2 className="text-xl font-semibold mb-4">Scan Attendance QR Code</h2>
-                <QRScanner />
               </div>
             </div>
           )}
