@@ -4,7 +4,6 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const sequelize = require('./config/database');
-const authRoutes = require('./routes/auth.routes');
 const attendanceRoutes = require('./routes/attendance.routes');
 const userRoutes = require('./routes/users.routes');
 const { errorHandler } = require('./middleware/error.middleware');
