@@ -1,4 +1,5 @@
 const User = require('../models/user.model');
+const jwt = require('jsonwebtoken');
 
 // User registration
 exports.registerUser = async (req, res) => {
@@ -30,6 +31,47 @@ exports.registerUser = async (req, res) => {
     return res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
     console.error('Error registering user:', error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+// User login
+exports.loginUser = async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    // Find user by username
+    const user = await User.findOne({ where: { username } });
+    if (!user) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    // Check password
+    const isPasswordValid = await user.comparePassword(password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    // Generate JWT token
+    const token = jwt.sign(
+      { id: user.id, username: user.username, role: user.role },
+      process.env.JWT_SECRET || 'your-secret-key',
+      { expiresIn: '24h' }
+    );
+
+    // Return user info and token
+    return res.status(200).json({
+      message: 'Login successful',
+      user: {
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        role: user.role
+      },
+      token
+    });
+  } catch (error) {
+    console.error('Error logging in:', error);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Paper, Box, Typography } from '@mui/material';
-import RegisterForm from '../components/RegisterForm';
+import RegisterForm from '../components/Forms/RegisterForm';
 
 function Register() {
     return (
