@@ -37,8 +37,8 @@ function LoginForm (){
                 sessionStorage.setItem('IsLoggedIn', true);
                 sessionStorage.setItem('token', data.token);
                 console.log('Login Successful');
-                // Navigate to dashboard after successful login
-                navigate('/dashboard');
+                // Navigate to home after successful login
+                navigate('/home');
             }catch(error){
                 setErrors({
                     password:error.message});

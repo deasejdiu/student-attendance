@@ -5,7 +5,7 @@ import { store } from './store';
 
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+import Home from './pages/Home';
 
 // Protected Route component
 const ProtectedRoute = ({ children }) => {
@@ -22,10 +22,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route 
-            path="/dashboard" 
+            path="/home" 
             element={
               <ProtectedRoute>
-                <Dashboard />
+                <Home />
               </ProtectedRoute>
             } 
           />
