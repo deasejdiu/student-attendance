@@ -19,7 +19,8 @@
     "joi": "^17.12.1",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.14.0",
-    "sequelize": "^6.37.7"
+    "sequelize": "^6.37.7",
+    "student-attendance-backend": "file:"
   },
   "devDependencies": {
     "nodemon": "^3.0.3"
