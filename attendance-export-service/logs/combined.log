@@ -281,3 +281,19 @@
 {"level":"info","message":"Incremental sync processed 4 records. Upserted: 4, Modified: 0","module":"sync-service","service":"attendance-export","timestamp":"2025-05-02 16:43:52"}
 {"endTime":"2025-05-02T14:43:52.350Z","level":"info","message":"Incremental sync completed","module":"sync-script","recordsProcessed":4,"service":"attendance-export","startTime":"2025-05-02T14:43:52.341Z","syncType":"incremental","timestamp":"2025-05-02 16:43:52"}
 {"level":"info","message":"Disconnected from MongoDB","module":"sync-script","service":"attendance-export","timestamp":"2025-05-02 16:43:52"}
+{"level":"info","message":"Connected to MongoDB","module":"sync-script","service":"attendance-export","timestamp":"2025-05-11 02:36:21"}
+{"level":"info","message":"Starting incremental sync","module":"sync-service","service":"attendance-export","timestamp":"2025-05-11 02:36:21"}
+{"level":"info","message":"Starting incremental sync","module":"sync-script","service":"attendance-export","timestamp":"2025-05-11 02:36:21"}
+{"level":"info","message":"Last sync: 2025-05-02T14:43:52.350Z","module":"sync-service","service":"attendance-export","timestamp":"2025-05-11 02:36:21"}
+{"level":"info","message":"Received 0 updated records since last sync","module":"sync-service","service":"attendance-export","timestamp":"2025-05-11 02:36:21"}
+{"level":"info","message":"No new records to process","module":"sync-service","service":"attendance-export","timestamp":"2025-05-11 02:36:21"}
+{"endTime":"2025-05-11T00:36:21.677Z","level":"info","message":"Incremental sync completed","module":"sync-script","recordsProcessed":0,"service":"attendance-export","startTime":"2025-05-11T00:36:21.676Z","syncType":"incremental","timestamp":"2025-05-11 02:36:21"}
+{"level":"info","message":"Disconnected from MongoDB","module":"sync-script","service":"attendance-export","timestamp":"2025-05-11 02:36:21"}
+{"level":"info","message":"Connected to MongoDB","module":"sync-script","service":"attendance-export","timestamp":"2025-05-11 22:37:11"}
+{"level":"info","message":"Starting incremental sync","module":"sync-service","service":"attendance-export","timestamp":"2025-05-11 22:37:11"}
+{"level":"info","message":"Starting incremental sync","module":"sync-script","service":"attendance-export","timestamp":"2025-05-11 22:37:11"}
+{"level":"info","message":"Last sync: 2025-05-11T00:36:21.677Z","module":"sync-service","service":"attendance-export","timestamp":"2025-05-11 22:37:12"}
+{"level":"info","message":"Received 0 updated records since last sync","module":"sync-service","service":"attendance-export","timestamp":"2025-05-11 22:37:12"}
+{"level":"info","message":"No new records to process","module":"sync-service","service":"attendance-export","timestamp":"2025-05-11 22:37:12"}
+{"endTime":"2025-05-11T20:37:12.227Z","level":"info","message":"Incremental sync completed","module":"sync-script","recordsProcessed":0,"service":"attendance-export","startTime":"2025-05-11T20:37:12.226Z","syncType":"incremental","timestamp":"2025-05-11 22:37:12"}
+{"level":"info","message":"Disconnected from MongoDB","module":"sync-script","service":"attendance-export","timestamp":"2025-05-11 22:37:12"}
