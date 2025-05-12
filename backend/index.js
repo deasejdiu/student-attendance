@@ -4,7 +4,8 @@ require('dotenv').config();
 const swaggerDocs = require('./swagger');
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = 3000; // Force port 3000
+process.env.JWT_SECRET = 'attendance-secret-key-2024'; // Set JWT secret
 
 // Middleware
 app.use(cors());

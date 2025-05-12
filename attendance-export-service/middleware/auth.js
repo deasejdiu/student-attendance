@@ -2,8 +2,7 @@ const jwt = require("jsonwebtoken");
 const { createLogger } = require("../utils/logger");
 
 const logger = createLogger("auth-middleware");
-const JWT_SECRET =
-  process.env.JWT_SECRET || "8e763807-6039-4dd0-9740-2284b9e632d3";
+const JWT_SECRET = process.env.JWT_SECRET || "attendance-secret-key-2024";
 
 // Middleware to authenticate requests
 const authenticateRequest = (req, res, next) => {

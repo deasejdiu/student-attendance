@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 
 // Create a base axios instance with common configuration
 const api = axios.create({
-  baseURL: "http://localhost:4000/v1",
+  baseURL: "http://localhost:3000/v1",
   headers: {
     "Content-Type": "application/json",
   },
