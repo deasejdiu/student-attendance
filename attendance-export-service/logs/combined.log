@@ -374,3 +374,5 @@
 {"level":"info","message":"Attendance Export Service running on port 4500","module":"app","service":"attendance-export","timestamp":"2025-05-12 18:27:41"}
 {"level":"info","message":"Connected to MongoDB","module":"app","service":"attendance-export","timestamp":"2025-05-12 18:38:21"}
 {"level":"info","message":"Attendance Export Service running on port 4500","module":"app","service":"attendance-export","timestamp":"2025-05-12 18:38:21"}
+{"level":"info","message":"Connected to MongoDB","module":"app","service":"attendance-export","timestamp":"2025-05-12 18:48:07"}
+{"level":"info","message":"Attendance Export Service running on port 4500","module":"app","service":"attendance-export","timestamp":"2025-05-12 18:48:07"}

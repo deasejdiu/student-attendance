@@ -449,56 +449,6 @@ function UsersPage() {
       </Paper>
 
       {/* Add User Dialog */}
-      <Dialog 
-        open={openAddDialog} 
-        onClose={handleDialogClose}
-        maxWidth="sm" 
-        fullWidth
-      >
-        <DialogTitle>Add New User</DialogTitle>
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="username"
-            label="Username"
-            type="text"
-            fullWidth
-            value={userForm.username}
-            onChange={(e) => setUserForm({ ...userForm, username: e.target.value })}
-            required
-          />
-          <TextField
-            margin="dense"
-            id="email"
-            label="Email"
-            type="email"
-            fullWidth
-            value={userForm.email}
-            onChange={(e) => setUserForm({ ...userForm, email: e.target.value })}
-            required
-          />
-          <TextField
-            margin="dense"
-            id="password"
-            label="Password"
-            type="password"
-            fullWidth
-            value={userForm.password}
-            onChange={(e) => setUserForm({ ...userForm, password: e.target.value })}
-            required
-          />
-          <FormControl fullWidth margin="dense">
-            <InputLabel id="role-label">Role</InputLabel>
-            <Select
-              labelId="role-label"
-              id="role"
-              value={userForm.role}
-              label="Role"
-              onChange={(e) => setUserForm({ ...userForm, role: e.target.value })}
-              required
-            >
-              <MenuItem value="admin">Admin</MenuItem>
       <Dialog open={openAddDialog} onClose={handleCloseAddDialog}>
         <form onSubmit={(e) => {
           e.preventDefault();
