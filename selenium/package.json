@@ -1,0 +1,23 @@
+{
+  "name": "attendance-selenium-tests",
+  "version": "1.0.0",
+  "description": "Selenium tests for Student Attendance System",
+  "scripts": {
+    "test": "jest",
+    "test:login": "jest login.test.js",
+    "test:attendance": "jest attendance.test.js",
+    "test:students": "jest students.test.js",
+    "test:classes": "jest classes.test.js",
+    "test:teachers": "jest teachers.test.js",
+    "test:users": "jest users.test.js",
+    "test:reports": "jest reports.test.js",
+    "test:all": "jest --runInBand",
+    "test:manual-users": "node run-user-tests.js"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.18.1",
+    "chromedriver": "^136.0.0",
+    "jest": "^29.7.0",
+    "dotenv": "^16.4.5"
+  }
+} 

@@ -12,27 +12,51 @@ const api = axios.create({
 // Request interceptor for adding auth token
 api.interceptors.request.use(
   (config) => {
+    console.log('API Request:', {
+      url: config.url,
+      method: config.method,
+      data: config.data,
+      headers: config.headers,
+      baseURL: config.baseURL
+    });
     const token = localStorage.getItem("token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => {
+    console.error('API Request Error:', error);
+    return Promise.reject(error);
+  }
 );
 
 // Response interceptor for handling common errors
 api.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    console.log('API Response:', {
+      url: response.config.url,
+      status: response.status,
+      data: response.data,
+      baseURL: response.config.baseURL
+    });
+    return response;
+  },
   (error) => {
-    // Handle common errors (401, 403, etc.)
-    if (error.response) {
-      if (error.response.status === 401) {
-        // Handle unauthorized (e.g., redirect to login)
-        console.log("Unauthorized, please login again");
-        // You could add redirect logic here
-      }
+    console.error('API Response Error:', {
+      url: error.config?.url,
+      status: error.response?.status,
+      data: error.response?.data,
+      message: error.message,
+      baseURL: error.config?.baseURL
+    });
+
+    if (error.response?.status === 401) {
+      // Handle unauthorized access
+      localStorage.removeItem('token');
+      window.location.href = '/login';
     }
+
     return Promise.reject(error);
   }
 );
