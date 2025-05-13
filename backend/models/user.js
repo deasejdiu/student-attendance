@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       return bcrypt.compare(password, this.password);
     }
   }
-  
+
   User.init({
     id: {
       type: DataTypes.UUID,
@@ -40,12 +40,27 @@ module.exports = (sequelize, DataTypes) => {
     role: {
       type: DataTypes.ENUM('admin', 'teacher'),
       defaultValue: 'teacher'
+    },
+    isVerified: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    verificationToken: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    resetToken: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    resetTokenExpiry: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     sequelize,
     modelName: 'User',
     hooks: {
-      // Hash password before saving
       beforeCreate: async (user) => {
         if (user.password) {
           const salt = await bcrypt.genSalt(10);
@@ -60,6 +75,6 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  
+
   return User;
-}; 
+};

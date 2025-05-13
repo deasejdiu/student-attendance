@@ -6,7 +6,6 @@ const userController = {
   // Register a new user
   async register(req, res) {
     try {
-      console.log('Register request received:', req.body);
       const { username, password, email, role } = req.body;
       
       // Check if user with same username or email already exists
@@ -20,13 +19,11 @@ const userController = {
       });
 
       if (existingUser) {
-        console.log('User already exists:', existingUser.username);
         return res.status(400).json({ 
           message: 'User with this username or email already exists' 
         });
       }
 
-      console.log('Creating new user:', { username, email, role });
       const user = await User.create({
         username,
         password,
@@ -42,10 +39,8 @@ const userController = {
         role: user.role
       };
 
-      console.log('User created successfully:', userResponse);
       res.status(201).json(userResponse);
     } catch (error) {
-      console.error('Error creating user:', error);
       res.status(500).json({ error: error.message });
     }
   },
